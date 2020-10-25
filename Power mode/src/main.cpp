@@ -1,22 +1,22 @@
 #include <Arduino.h>
 
+int sleepTime = 5; //5 sekund
+String jej;
+
+void powerOff() {
+  esp_err_t esp_bluedroid_disable();
+  esp_err_t esp_bt_controller_disable();
+
+  esp_err_t esp_wifi_stop(); 
+}
 
 void setup() {
-  //Serial.begin(9600);
-  //esp_err_t esp_bluedroid_disable();
-  esp_err_t esp_wifi_stop();
+  Serial.begin(9600);
+  //powerOff();
 }
 
 void loop() {
-  //Serial.println("Ahoj");
+  Serial.println("");
+  Serial.println("Ahoj");
+  esp_deep_sleep(sleepTime * 1000000);
 }
-
-
-/*
-125mA po prvním spuštění
-60 mA při vypisování do konzole (Ahoj)
-73 mA Zapnuté BLE bez konzole
-73 mA Vypnuté BLE bez konzole
-73 mA Bez WIFI baz konzoleb
-
-*/
